@@ -2,6 +2,7 @@ function colours = findColours(img)
     filter=fspecial('average',10);   %Create a filter
 	img=imfilter(img,filter);  %Apply filter
     %testsfdsfs
+    %tsets2
     figure, imshow(img), title('Noise Reduction');
     colours = repmat(0, [4 4 3]); %Create a 4x4x3 matrix to store the RGB values
     
