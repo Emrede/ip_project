@@ -2,6 +2,8 @@ function orientation = findOrientation(img, centers)
 %     img=imread('noise_1_.png');
 %     figure, imshow(img_org), title('Original Image');
     
+    
+
     if length(centers)==4
         orientation=1;
     else

@@ -1,4 +1,4 @@
-function centers = detectCircle(img, isShowCircle)
+function [centers,radii,metric] = detectCircle(img)
   %%%%%FILTER%%%%%%
   	%img=imread('imgs/rot_3.png');
 % 	img_org = img;
@@ -25,22 +25,23 @@ function centers = detectCircle(img, isShowCircle)
     radius=[5,15];
 	[centers,radii,metric]=imfindcircles(img,radius,'ObjectPolarity','bright');
     %If 4 centroids wasn't found, increase the search radius.
-    if(length(centers)<4)
-%         se=strel('disk',1);
-%         img=imdilate(img,se); 
-        radius=[16,30];
-        [centers2,radii2,metric2]=imfindcircles(img,radius);
-% %         centers = centers + centers2;
-    end
+%     if(length(centers)<4)
+% %         se=strel('disk',1);
+% %         img=imdilate(img,se); 
+%         radius=[16,30];
+%         [centers2,radii2,metric2]=imfindcircles(img,radius);
+% % %         centers = centers + centers2;
+%     end
     %SHOW THE CENTERS ON THE IMAGE%
-    if isShowCircle
-        if length(centers)>1
-            centersStrong5 = centers(1:length(centers),:);
-            radiiStrong5 = radii(1:length(centers));
-            metricStrong5 = metric(1:length(centers));
-
-            figure, imshow(img), viscircles(centersStrong5, radiiStrong5,'EdgeColor','b');
-            title('Found Circles On Image');
-        end
-    end
+%     if isShowCircle
+    %Show circles if 4 centers found
+%     if (~isempty(centers) && length(centers(:,2))==4)%~isempty(centers)
+%         centersStrong5 = centers(1:length(centers(:,2)),:);
+%         radiiStrong5 = radii(1:length(centers(:,2)));
+%         metricStrong5 = metric(1:length(centers(:,2)));
+% 
+%         figure, imshow(img), viscircles(centersStrong5, radiiStrong5,'EdgeColor','b');
+%         title('Found Circles On Image');
+% %         end
+%     end
 end
