@@ -1,4 +1,4 @@
-
+%Git test
 function result = colourMatrix(img)
     img = imread(img); %Read the input image file
     img_org = img; %Backup original image
