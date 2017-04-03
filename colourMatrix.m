@@ -1,6 +1,11 @@
+
 function result = colourMatrix(img)
     img = imread(img); %Read the input image file
-    orientation = findOrientation(img);
+    img_org = img; %Backup original image
+    img = imgFilter(img); %Filter the image
+    centers = detectCircle(img, 1); %Find the circles
+    orientation = findOrientation(img,centers); %Orientation
+    
     switch orientation
         %case 0 %Cancelled
             %Orientation is original

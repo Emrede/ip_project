@@ -3,7 +3,11 @@ function imgR = correctRotation(img)
     %img=imread('imgs/rot_2.png');
     BW=im2bw(img); %Convert image into binary
     BW = imcomplement(BW); %Take its complement 
-    se=strel('disk',11); %Define a structure for the filter
+
+    se=strel('disk',1); %Define a structure for the filter
+    BW = imdilate(BW,se);
+    
+    se=strel('disk',4); %Define a structure for the filter
     BW = imerode(BW,se); %Erode the image
     
     CC = bwconncomp(BW); %Take the connected components of binary image
@@ -46,7 +50,7 @@ function imgR = correctRotation(img)
     %right) by using Non Reflective Similarity property and warp the image
     %according to these points.
     
-    fixedPoints  = [25.5 25.5; 444.5 444.5];
+    fixedPoints  = [17 17; 426 426];
     movingPoints = [centers(Idx(1),:);centers(Idx(4),:)];
     
     tform = fitgeotrans(movingPoints,fixedPoints,'nonreflectivesimilarity')
