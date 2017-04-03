@@ -19,7 +19,7 @@ function img = imgFilter(img,hsize,r,a)
 %     imshow(img)
 
     img=im2bw(img,0.1);
-%     img = bwareaopen(img, 100); % Get rid of small blobs.
+%     img = bwareaopen(img, 1000); % Get rid of small blobs.
     img=imcomplement(img);
 %     figure
 %     imshow(img)
