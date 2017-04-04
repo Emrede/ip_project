@@ -5,11 +5,11 @@ function img = imgFilter(img,hsize,r,a)
 
 %     filter = fspecial('gaussian',15);   %Reduce noise
 %     img = imfilter(img,filter);
-    filter = fspecial('average',hsize); %Rot3: 2
-    img = imfilter(img,filter);
+filter = fspecial('average',hsize); %Rot3: 2
+img = imfilter(img,filter);
 
 %     img = imsharpen(img,'Radius',5,'Amount',6); %Rot3: 5-6
-    img = imsharpen(img,'Radius',r,'Amount',a);
+img = imsharpen(img,'Radius',r,'Amount',a);
 
 %     figure
 %     imshow(img)
@@ -18,18 +18,18 @@ function img = imgFilter(img,hsize,r,a)
 %     figure
 %     imshow(img)
 
-    img=im2bw(img,0.1);
+img=im2bw(img,0.1);
 %     img = bwareaopen(img, 1000); % Get rid of small blobs.
-    img=imcomplement(img);
+img=imcomplement(img);
 %     figure
 %     imshow(img)
 
-    se=strel('disk',1);
-    img=imerode(img,se); 
+se=strel('disk',1);
+img=imerode(img,se);
 %     figure, imshow(img)
 
 %      se=strel('disk',2);
-%     img=imdilate(img,se); 
+%     img=imdilate(img,se);
 %     imshow(img)
 end
 
