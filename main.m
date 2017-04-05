@@ -1,5 +1,4 @@
 %function result=colourMatrix(filename)
-
 close all
 clear
 clc
