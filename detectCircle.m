@@ -4,7 +4,7 @@ function [centers4_ok,radii,metric,notfound] = detectCircle(img,radius)
 
 % img = imread(img); %Read the input image file
 img_org = img; %Backup original image
-figure, imshow(img)
+figure, imshow(img), title('Input image');
 notfound=0;
 centers4_ok=[];
 

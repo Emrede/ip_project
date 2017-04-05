@@ -18,7 +18,7 @@ end
 img=imerode(img,se);
 % img = bwareaopen(img, 10); % Get rid of small blobs.
 img=imdilate(img,se);
-figure, imshow(img), title('Eroded Image')
+figure, imshow(img), title('Image for bar detection')
 
 % [centers,radii,metric]=imfindcircles(img,[5 15],'ObjectPolarity','bright','Sensitivity',0.82);
 CC = bwconncomp(img); %Get the connected components of binary image
