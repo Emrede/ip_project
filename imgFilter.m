@@ -26,7 +26,7 @@ img=imcomplement(img);
 
 se=strel('disk',1);
 img=imerode(img,se);
-%     figure, imshow(img)
+%     figure, imshow(img), title('first filter');
 
 %      se=strel('disk',2);
 %     img=imdilate(img,se);

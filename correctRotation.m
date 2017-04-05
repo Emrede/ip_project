@@ -1,4 +1,4 @@
-function imgR = correctRotation(img,img_org,centers)
+function [imgR,warpInfo] = correctRotation(img,img_org,centers)
 
 
 
@@ -21,7 +21,7 @@ movingPoints = centers;%(Idx(1),:);centers(Idx(4),:)];
 
 tform = fitgeotrans(movingPoints,fixedPoints,'projective');
 unregistered = img_org;
-imgR=imwarp(unregistered,tform);
+[imgR,warpInfo]=imwarp(unregistered,tform);
 
 figure, imshow(imgR), title('Warped Image');
 end

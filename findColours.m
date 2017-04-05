@@ -7,7 +7,7 @@ function colours = findColours(img)
     
     for y=1:4
         for x=1:4
-            colours(y,x,:) = impixel(img, (x-1)*100+65, (y-1)*100+65); 
+            colours(y,x,:) = impixel(img, (x-1)*100+70, (y-1)*100+70); 
         end
     end
 end
