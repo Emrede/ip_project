@@ -1,8 +1,10 @@
+%function result=colourMatrix(filename)
+
 close all
 clear
 clc
 
-img = imread('imgs/proj_5.png'); %proj_2, proj_5, proj1_2, proj1_4,
+img = imread('imgs/proj2_3.png'); %proj_2, proj_5, proj1_2, proj1_4,
 %proj1_5/almost ok, proj2_3, proj2_4, proj2_5
 img_org = img;
 radius = [5,15];
@@ -52,3 +54,4 @@ else %If the centers found go on and detect the bars and warp the image.
     
     colours = findColours(imgC) %Return the RGB colour matrix.
 end
+%end
