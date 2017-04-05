@@ -1,4 +1,7 @@
 function [centers4_ok,radii,metric,notfound] = detectCircle(img,radius)
+%The function detectes circles and iterates changing by filter values in a
+%defined interval. When it finds 4 proper centers, returns them
+
 % img = imread(img); %Read the input image file
 img_org = img; %Backup original image
 figure, imshow(img)
@@ -38,42 +41,3 @@ if isempty (centers4_ok)
     notfound = 1; %If centers weren't found set notfound to the 1
 end
 end
-
-%%%%%colourMatrix%%%%%%
-%orientation = findOrientation(img,centers); %Orientation
-
-%     switch orientation
-%         %case 0 %Cancelled
-%             %Orientation is original
-%             %imgR = img;
-%
-%         case 1
-%             %Orientation is rotated
-%             imgR = correctRotation(img);
-%
-% %         case 2
-% %             %Orientation is projective
-% %             orthophoto = 'refGrid.png';
-% %             unregistered = img;
-% %             %Select circles - Oriantate the image
-% %             [imgPoints refPoints] = cpselect(unregistered, orthophoto,'Wait', true);
-% %             mytform = fitgeotrans(imgPoints,refPoints, 'projective');
-% %             imgR=imwarp(unregistered,mytform);
-% %             figure
-% %             imshow(imgR),title('Projective Corrected')
-%
-%     end
-%Crop the image
-%     newCenters = detectCircle(imgR,0);
-%     newCenters = sort(newCenters);
-%     imgCropped = imcrop(imgR, [newCenters(1,:) 422 422]);
-%     figure, imshow(imgCropped), title('Cropped Image');
-
-%Find the colours
-%     result = findColours(imgCropped); %Return a 4x4x3 colour matrix as result
-
-
-
-
-
-

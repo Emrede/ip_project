@@ -1,23 +1,12 @@
 function [imgR,warpInfo] = correctRotation(img,img_org,centers)
 
+%The coordinates of closest circle to the blocks is considered as the first 
+%circle and  was assumed to be placed into the top left corner
 
+%The other corners follow regularly following the counter clockwise direction
+fixedPoints  = [16 16; 16 426; 426 16; 426 426; ]; 
 
-% [centers,radii,metric,notfound] = detectCircle(img,[5,15]); 
-
-%Find center coordinates of the circles in the image by using detectCircle function
-
-%Oriantate the image
-
-
-%The coordinates of top left and bottom right corner of the pattern is
-%defined previously to compare given 2 points (top left and bottom
-%right) by using Non Reflective Similarity property and warp the image
-%according to these points.
-
-%The first indexed circle was assumed to be placed into the top left corner
-fixedPoints  = [16 16; 16 426; 426 16; 426 426; ];
-% fixedPoints  = [426 16;  426 426; 16 426; 16 16];
-movingPoints = centers;%(Idx(1),:);centers(Idx(4),:)];
+movingPoints = centers;
 
 tform = fitgeotrans(movingPoints,fixedPoints,'projective');
 unregistered = img_org;

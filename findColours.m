@@ -1,4 +1,5 @@
 function colours = findColours(img)
+%Returns the RGB colors values of predefined coordinates on an image
     filter=fspecial('average',10);   %Create a filter
 	img=imfilter(img,filter);  %Apply filter
 

@@ -2,7 +2,7 @@ close all
 clear
 clc
 
-img = imread('imgs/proj1_3.png'); %proj_2, proj_5, proj1_2, proj1_4,
+img = imread('imgs/noise_3.png'); %proj_2, proj_5, proj1_2, proj1_4,
 %proj1_5/almost ok, proj2_3, proj2_4, proj2_5
 img_org = img;
 radius = [5,15];
@@ -25,7 +25,11 @@ else
     title('Circles identified on the image.');
 end
 
-bars = findBars(img_org);
+cDistances = pdist2(centers,centers,'euclidean'); %Find distances between the centers
+orientation = findOrientation(cDistances);
+
+
+bars = findBars(img_org, orientation);
 bar1 = bars(1).Centroid; %is a struct, so it contains a Centroid field.
 bar2 = bars(2).Centroid;
 bars = [bar1; bar2];
