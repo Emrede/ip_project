@@ -1,4 +1,4 @@
-function [imgR,warpInfo] = correctRotation(img,img_org,centers)
+function [imgW,warpInfo] = correctRotation(img,img_org,centers)
 
 %The coordinates of closest circle to the blocks is considered as the first
 %circle and  was assumed to be placed into the top left corner
@@ -9,7 +9,7 @@ movingPoints = centers;
 
 tform = fitgeotrans(movingPoints,fixedPoints,'projective');
 unregistered = img_org;
-[imgR,warpInfo]=imwarp(unregistered,tform);
+[imgW,warpInfo]=imwarp(unregistered,tform);
 
-figure, imshow(imgR), title('Warped Image');
+figure, imshow(imgW), title('Warped Image');
 end

@@ -7,10 +7,10 @@ function bars = findBars(img, orientation)
 %hsize valued erosion and dilation to the image. Hence, According to the
 %orientation images are considered in the 2 case.
 
-if orientation ==1 %If orientation org or noised set these
+if orientation == 1 %If orientation org or noised set these
     img = imgFilter(img,11,5,5);
     se=strel('disk',4);
-else %otherweise set these
+else %otherweise set these for rotated and objective patterns
     img = imgFilter(img,2,5,5);
     se=strel('disk',3);
 end
@@ -18,7 +18,7 @@ end
 img=imerode(img,se);
 % img = bwareaopen(img, 10); % Get rid of small blobs.
 img=imdilate(img,se);
-figure, imshow(img), title('Image for bar detection')
+figure, imshow(img), title('Used image for bar detection')
 
 % [centers,radii,metric]=imfindcircles(img,[5 15],'ObjectPolarity','bright','Sensitivity',0.82);
 CC = bwconncomp(img); %Get the connected components of binary image
