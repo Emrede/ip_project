@@ -10,7 +10,7 @@ for i=1:n
     %If there is a distance among centers smaller than 405, image is 
     %rotated or projection
     if cDistances(i)~=0 && cDistances(i) < 405
-        orientation = 2 %Orientation is rotated or projective
+        orientation = 2; %Orientation is rotated or projective
     end
 end
 end

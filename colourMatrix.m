@@ -38,16 +38,18 @@ else %If the centers found go on and detect the bars and warp the image.
     for i=1:4
         sortedCenters(i,:) = centers(I(i),:);
     end
-    
-    [imgW,warpInfo]=correctRotation(img,img_org,sortedCenters);
-%     figure, imshow(imgW)
-    %%Cropping process%%
-    xmin = abs(warpInfo.XWorldLimits(1));
-    ymin = abs(warpInfo.YWorldLimits(1));
-    rect = [xmin, ymin, 440, 440]; %Crop rectangle
-    imgC = imcrop(imgW, rect);  %Crop the given image
-    figure, imshow(imgC), title('Cropped image');
-    %%Cropping process%%
-    result = findColours(imgC) %Return the RGB colour matrix.
+    if orientation == 2
+        [imgW,warpInfo]=correctRotation(img,img_org,sortedCenters);
+        %figure, imshow(imgW)
+        %%Cropping process%%
+        xmin = abs(warpInfo.XWorldLimits(1));
+        ymin = abs(warpInfo.YWorldLimits(1));
+        rect = [xmin, ymin, 440, 440]; %Crop rectangle
+        imgC = imcrop(imgW, rect);  %Crop the given image
+        figure, imshow(imgC), title('Cropped image');
+        img=imgC; %If the image cropped send it into the img
+        %%Cropping process%%
+    end
+    result = findColours(img) %Return the RGB colour matrix.
 end
 end
