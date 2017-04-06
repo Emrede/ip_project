@@ -1,7 +1,4 @@
 function orientation = findOrientation(cDistances)
-%     img=imread('noise_1_.png');
-%     figure, imshow(img_org), title('Original Image');
-
 %Detectes the orientation of the input image. It was divided into 2 case,
 %1. Original or noised images
 %2. Rotated or proj images

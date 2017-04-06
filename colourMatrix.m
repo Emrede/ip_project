@@ -1,6 +1,6 @@
 function result=colourMatrix(filename)
 
-img = imread(filename); %proj_2, proj_5, proj1_2, proj1_4,
+img = imread(filename); %Works well on proj_2, proj_5, proj1_2, proj1_4,
 img_org = img; % proj2_3, proj2_4, proj2_5
 radius = [5,15];
 [centers,radii,metric,notfound] = detectCircle(img,radius);

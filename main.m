@@ -2,4 +2,4 @@ close all
 clc
 clear
 
-result=colourMatrix('imgs/proj_2.png');
+result=colourMatrix('imgs/rot_5.png');

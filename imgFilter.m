@@ -8,7 +8,6 @@ function img = imgFilter(img,hsize,r,a)
 % img = imfilter(img,filter);
 filter = fspecial('average',hsize);
 img = imfilter(img,filter);
-
 img = imsharpen(img,'Radius',r,'Amount',a);
 
 % img = imadjust(img,[0.0; 0.60],[0.0; 1.0]);
